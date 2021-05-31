@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AddShoppingCart from '@material-ui/icons/AddShoppingCart';
+import Accounting from 'accounting';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,21 +48,13 @@ export default function Product() {
   return (
     <Card className={classes.root}>
       <CardHeader
-        /*avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-          </Avatar>
-        }*/
         action={
-          /*<IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>*/
           <Typography
             className={classes.action}
             variant='h5'
             color='textSecondary'
             >
-							{50}
+							{Accounting.formatMoney(1000, { symbol: "MX",  format: "%v %s" })}
             </Typography>
         }
         title="Luchador Enmascarado"

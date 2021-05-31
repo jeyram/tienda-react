@@ -1,11 +1,10 @@
-import './components/Product';
-import './App.css';
 import Product from './components/Product';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Tienda React v 0.1</h1>
+    <div>
+      <Navbar/>
       <Product/>
     </div>
   );
