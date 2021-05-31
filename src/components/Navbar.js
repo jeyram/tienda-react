@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -17,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor: "whitesmoke",
 		boxShadow: "none",
 	},
+  grow: {
+    flexGrow: 1,
+  },
 	button: {
 		marginLeft: theme.spacing(2),
 	},
@@ -42,11 +46,12 @@ export default function Navbar() {
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
 						<img src={logo} className={classes.logo}/>
           </IconButton>
+          <div className={classes.grow}/>
           <Typography variant="h6" color="textSecondary" component="p">
 						Hello Guest
           </Typography>
 						<div className={classes.button}>
-						<Button variant="outlined" color="inherit">
+						<Button variant="outlined" color="lightgray">
 							<strong>Sign In</strong>
 						</Button>
 						<IconButton aria-label="show cart items" color="inherit">
