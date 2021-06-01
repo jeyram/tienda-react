@@ -16,7 +16,7 @@ import Accounting from 'accounting';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 340,
+    maxWidth: 345,
   },
   title: {
     fontSize: 16,
