@@ -16,7 +16,10 @@ import Accounting from 'accounting';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: 340,
+  },
+  title: {
+    fontSize: 16,
   },
   media: {
     height: 0,
@@ -37,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Product() {
+export default function Product({product :{id, name, productType, image, price, rating, description}}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -50,31 +53,36 @@ export default function Product() {
       <CardHeader
         action={
           <Typography
-            className={classes.action}
-            variant='h5'
+            // variant='h6'
             color='textSecondary'
             >
-							{Accounting.formatMoney(1000, { symbol: "MX",  format: "%v %s" })}
+							{Accounting.formatMoney(price, { symbol: "MX",  format: "%v %s" })}
             </Typography>
         }
-        title="Luchador Enmascarado"
+        title={
+          <Typography
+          className={classes.title}
+            >
+              {name}
+            </Typography>
+        }
         subheader="In Stock"
       />
       <CardMedia
         className={classes.media}
-				image='luchador.png'
+				image={image}
         title="Luchador enmascarado"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-					Artesanía Textil
+          {productType}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to Crart">
 					<AddShoppingCart fontSize='large'/>
         </IconButton>
-				{Array(4)
+				{Array(rating)
 					.fill()
 					.map((_, i) => (
 						<p>&#11088;</p>
@@ -93,8 +101,7 @@ export default function Product() {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>
-						Directamente del Ring un clásico personaje de la estampa Mexicana:
-						El luchador enmascarado capaz de derrotar momias, zombies y vampiros. Será la compañía perfecata para los sueños de tus hijos.
+            {description}
           </Typography>
         </CardContent>
       </Collapse>
