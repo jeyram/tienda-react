@@ -7,8 +7,8 @@ function App() {
   return (
     <div>
       <Navbar/>
-      <CheckoutPage/>
-      {/* <Products/> */}
+      {/* <CheckoutPage/> */}
+      <Products/>
     </div>
   );
 }

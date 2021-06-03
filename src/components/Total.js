@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'cener',
+        alignItems: 'center',
         height: "20vh",
     },
     button: {
