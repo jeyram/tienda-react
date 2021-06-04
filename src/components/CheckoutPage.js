@@ -3,10 +3,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
-import Product from './Product';
 import { products } from "../product-data";
 import CheckoutCard from './CheckoutCard';
 import Total from './Total';
+import { useStateValule } from "../StateProvider";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -17,11 +17,12 @@ const useStyles = makeStyles((theme) => ({
 
 const CheckoutPage = () => {
 	const classes = useStyles();
+	const [{basket}, dispatch] = useStateValule();
 
 	function FormRow() {
 		return (
 			<React.Fragment>
-				{products.map(item => (
+				{basket?.map(item => (
 					<Grid item xs={12} sm={6} md={4} lg={3}>
 						<CheckoutCard key={item.id} product={item} />
 					</Grid>

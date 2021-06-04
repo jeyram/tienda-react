@@ -12,7 +12,9 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AddShoppingCart from '@material-ui/icons/AddShoppingCart';
-import Accounting from 'accounting';
+import accounting from 'accounting';
+import { actionTypes } from 'reducer';
+import { useStateValule } from "../StateProvider";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,12 +44,27 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Product({product :{id, name, productType, image, price, rating, description}}) {
   const classes = useStyles();
+  const [{basket}, dispatch] = useStateValule();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
+  const addToBasket = () => {
+    dispatch({
+      type: actionTypes.ADD_TO_BASKET,
+      item: {
+        id,
+        name,
+        productType,
+        image,
+        price,
+        rating,
+        description,
+      }
+    })
+  }
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -56,7 +73,7 @@ export default function Product({product :{id, name, productType, image, price, 
             // variant='h6'
             color='textSecondary'
             >
-							{Accounting.formatMoney(price, { symbol: "MX",  format: "%v %s" })}
+							{accounting.formatMoney(price, "MX")}
             </Typography>
         }
         title={
@@ -79,7 +96,7 @@ export default function Product({product :{id, name, productType, image, price, 
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to Crart">
+        <IconButton aria-label="add to Crart" onClick={addToBasket} >
 					<AddShoppingCart fontSize='large'/>
         </IconButton>
 				{Array(rating)
