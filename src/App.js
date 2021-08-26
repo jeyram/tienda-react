@@ -8,9 +8,10 @@ import SignUp from 'components/Signup';
 import { auth} from './firebase'
 import { actionTypes } from 'reducer';
 import { useStateValule } from "./StateProvider";
+import Checkout from 'components/CheckoutForm/Checkout';
 
 function App() {
-  const [{user}, dispatch] = useStateValule();
+  const [{ user }, dispatch] = useStateValule();
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -20,7 +21,7 @@ function App() {
           type: actionTypes.SET_USER,
           user: authUser,
         })
-      }
+      };
     })
   }, [])
 
@@ -29,6 +30,9 @@ function App() {
       <div>
         <Navbar/>
         < Switch>
+          <Route path="/checkout">
+            <Checkout/>
+          </Route>
           <Route path="/signin">
             <SignIn/>
           </Route>
