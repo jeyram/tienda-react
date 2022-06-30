@@ -95,15 +95,18 @@ export default function Product({product :{id, name, productType, image, price, 
           {productType}
         </Typography>
       </CardContent>
+
       <CardActions disableSpacing>
         <IconButton aria-label="add to Crart" onClick={addToBasket} >
 					<AddShoppingCart fontSize='large'/>
         </IconButton>
+
 				{Array(rating)
 					.fill()
 					.map((_, i) => (
 						<p>&#11088;</p>
 					))}
+
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -115,6 +118,7 @@ export default function Product({product :{id, name, productType, image, price, 
           <ExpandMoreIcon />
         </IconButton>
       </CardActions>
+
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>
@@ -122,6 +126,7 @@ export default function Product({product :{id, name, productType, image, price, 
           </Typography>
         </CardContent>
       </Collapse>
+
     </Card>
   );
 }

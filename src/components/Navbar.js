@@ -77,7 +77,7 @@ export default function Navbar() {
           </Typography>
 						<div className={classes.button}>
             <Link to="/signin">
-              <Button variant="outlined" color="lightgray" onClick={handleAuth}>
+              <Button variant="outlined" onClick={handleAuth}>
                 <strong>{user ? "Sign Out" : "Sign In"}</strong>
               </Button>
             </Link>
