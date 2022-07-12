@@ -26,13 +26,7 @@ const Total = () => {
 		<div className={classes.root}>
 			<h5>Total items: {basket?.length}</h5>
 			<h5>{accounting.formatMoney(getBasketTotal(basket), 'MX')}</h5>
-<<<<<<< HEAD
 				<Button component={Link} to="/checkout" className={classes.button} variant='contained' color='secondary'>Check out</Button>
-=======
-			<Link to="/ncheckout">
-				<Button className={classes.button} variant='contained' color='secondary'>Check out</Button>
-			</Link>
->>>>>>> b7b4931f4f775ae9998754de548c27023755c593
 		</div>
 	)
 }

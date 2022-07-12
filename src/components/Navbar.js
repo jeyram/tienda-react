@@ -76,12 +76,7 @@ export default function Navbar() {
 						Hello {user ? user.email : "Guest"}
           </Typography>
 						<div className={classes.button}>
-<<<<<<< HEAD
               <Button component={Link} to="/signin" variant="outlined" color="lightgray" onClick={handleAuth}>
-=======
-            <Link to="/signin">
-              <Button variant="outlined" onClick={handleAuth}>
->>>>>>> b7b4931f4f775ae9998754de548c27023755c593
                 <strong>{user ? "Sign Out" : "Sign In"}</strong>
               </Button>
             <Link to="/checkout-page">

@@ -9,7 +9,6 @@ import { auth } from './firebase'
 import { actionTypes } from 'reducer';
 import { useStateValule } from "./StateProvider";
 import Checkout from 'components/CheckoutForm/Checkout';
-import NCheckout from 'components/CheckoutForm/NCheckout';
 
 function App() {
   const [{ user }, dispatch] = useStateValule();
@@ -33,9 +32,6 @@ function App() {
         < Switch>
           <Route path="/checkout">
             <Checkout/>
-          </Route>
-          <Route path="/ncheckout">
-            <NCheckout/>
           </Route>
           <Route path="/signin">
             <SignIn/>
