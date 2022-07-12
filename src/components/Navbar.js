@@ -76,11 +76,9 @@ export default function Navbar() {
 						Hello {user ? user.email : "Guest"}
           </Typography>
 						<div className={classes.button}>
-            <Link to="/signin">
-              <Button variant="outlined" color="lightgray" onClick={handleAuth}>
+              <Button component={Link} to="/signin" variant="outlined" color="lightgray" onClick={handleAuth}>
                 <strong>{user ? "Sign Out" : "Sign In"}</strong>
               </Button>
-            </Link>
             <Link to="/checkout-page">
               <IconButton aria-label="show cart items" color="inherit">
                 <Badge badgeContent={basket?.length} color="secondary">
